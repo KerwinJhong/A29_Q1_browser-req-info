@@ -6,7 +6,6 @@ app.use((req, res, next) => {
   var d = new Date();
   var day = d.toISOString().slice(0, 10);
   var time = d.toString().slice(16, 24);
-  const start = process.hrtime()
 
   res.on('close', () => {
     if (!(req.originalUrl == '/favicon.ico')) {
