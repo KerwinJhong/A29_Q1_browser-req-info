@@ -7,8 +7,8 @@ app.use((req, res, next) => {
   var day = d.toISOString().slice(0, 10);
   var time = d.toString().slice(16, 24);
 
-  res.on('close', () => {
-    if (!(req.originalUrl == '/favicon.ico')) {
+  res.on('finish', () => {
+    if (req.originalUrl !== '/favicon.ico') {
       console.log(`${day} ${time} | ${req.method} from ${req.originalUrl}`)
     }
   })
